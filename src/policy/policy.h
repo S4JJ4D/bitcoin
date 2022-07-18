@@ -53,7 +53,13 @@ static constexpr unsigned int MAX_STANDARD_SCRIPTSIG_SIZE{1650};
  * only increase the dust limit after prior releases were already not creating
  * outputs below the new threshold */
 static constexpr unsigned int DUST_RELAY_TX_FEE{3000};
-/** Default for -minrelaytxfee, minimum relay fee for transactions */
+/** 
+ * Default for -minrelaytxfee, minimum relay fee for transactions
+ * Note that, contrary to the name, this is actually a fee-rate rather than
+ * the absolute fee. the value 1000 means 1000 sat/kB = 1 sat/B.
+ * refer to https://bitcoin.stackexchange.com/questions/48235/what-is-the-minrelaytxfee
+ * for discussion.
+ */
 static constexpr unsigned int DEFAULT_MIN_RELAY_TX_FEE{1000};
 /** Default for -limitancestorcount, max number of in-mempool ancestors */
 static constexpr unsigned int DEFAULT_ANCESTOR_LIMIT{25};
